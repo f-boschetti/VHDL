@@ -24,7 +24,7 @@ port map( in0 => TB_in0, in1 => TB_in1, in2 => TB_in2,
          
 	process
     begin
-    	--a ideia Ã© que se aparecer 1 na saida
+    	--a ideia é que se aparecer 1 na saida
         --significa que fincionou
 
 
@@ -33,11 +33,11 @@ port map( in0 => TB_in0, in1 => TB_in1, in2 => TB_in2,
         TB_sel1 <= '0';
         --Outras variaveis
         --espera um tempo qualquer
-        TB_in0 <= '1';
+        TB_in0 <= '0';
         TB_in1 <= '0';
         TB_in2 <= '0';
-        TB_in3 <= '0';
-        wait for 10 ns;
+        TB_in3 <= '1';
+        wait for 3 ns;
         
         
         --Nivel do seletor
@@ -49,7 +49,7 @@ port map( in0 => TB_in0, in1 => TB_in1, in2 => TB_in2,
         TB_in1 <= '1';
         TB_in2 <= '0';
         TB_in3 <= '0';
-        wait for 10 ns;
+        wait for 3 ns;
         
         
         --Nivel do seletor
@@ -61,7 +61,7 @@ port map( in0 => TB_in0, in1 => TB_in1, in2 => TB_in2,
         TB_in1 <= '0';
         TB_in2 <= '1';
         TB_in3 <= '0';
-        wait for 10 ns;
+        wait for 3 ns;
         
         
         --Nivel do seletor
@@ -69,15 +69,25 @@ port map( in0 => TB_in0, in1 => TB_in1, in2 => TB_in2,
         TB_sel1 <= '1';
         --Outras variaveis
         --espera um tempo qualquer
+        TB_in0 <= '1';
+        TB_in1 <= '0';
+        TB_in2 <= '0';
+        TB_in3 <= '0';
+        --realmente nao entendi se no exemplo foi um erro
+        --ou aqui é mesmo pra ter um wait sem tempo
+        wait for 3 ns;
+        
+        --esse tete foi para aparecer a waveform
+        --sem ele ficava faltando o ultimo teste dela 
+        TB_sel0 <= '1';
+        TB_sel1 <= '1';
+        --Outras variaveis
+        --espera um tempo qualquer
         TB_in0 <= '0';
         TB_in1 <= '0';
         TB_in2 <= '0';
         TB_in3 <= '1';
-        --realmente nao entendi se no exemplo foi um erro
-        --ou aqui Ã© mesmo pra ter um wait sem tempo
         wait;
-         
-        
 	end process;
 
 end teste;
