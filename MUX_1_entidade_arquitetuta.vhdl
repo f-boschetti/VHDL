@@ -1,6 +1,4 @@
 --Usamos o Scriptum (20.0) como editor
---e no eda online deu done
---porém não apareceu o grafico
 
 library IEEE;
 use IEEE.std_logic_1164.all;
