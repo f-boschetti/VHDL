@@ -1,3 +1,7 @@
+--Usamos o Scriptum (20.0) como editor
+--e no eda online deu done
+--porém não apareceu o grafico
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 
@@ -18,8 +22,7 @@ begin
 
 --Port map dizendo oque recebe oque
 MUX_1_bit: entity work.mux_1
-port map( in1 => TB_in1, in2 => TB_in2, sel => TB_sel
-         );
+port map( in1 => TB_in1, in2 => TB_in2, sel => TB_sel);
          
 	process
     begin
