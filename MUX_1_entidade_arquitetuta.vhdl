@@ -20,8 +20,8 @@ architecture arch of mux_1 is
 signal lin1, lin2 : std_logic;
 	begin
 		--Operaçoes que são feitas
-        lin1 <= in2 or sel;
-        lin2 <= (not sel) or in1;
+        lin1 <= in2 and sel;
+        lin2 <= (not sel) and in1;
         
-        s <= lin1 and lin2;
+        s <= lin1 or lin2;
 end arch;
