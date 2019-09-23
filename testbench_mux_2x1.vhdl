@@ -1,6 +1,3 @@
---Usamos o editor Scriptum (20.0)
---daqui parece tudo bonito
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 
@@ -10,6 +7,7 @@ end TB_mux_1;
 --Atribui um sinal a cada "variavel" pra poder
 --mudar elas
 architecture teste of TB_mux_1 is
+signal lin1, lin2 : std_logic;
 	
     signal TB_in1:  std_logic;
     signal TB_sel:  std_logic;
@@ -20,8 +18,7 @@ begin
 
 --Port map dizendo oque recebe oque
 MUX_1_bit: entity work.mux_1
-port map( in1 => TB_in1, in2 => TB_in2, sel => TB_sel,
-		  lin1 => TB_lin1, lin2 => TB_lin2
+port map( in1 => TB_in1, in2 => TB_in2, sel => TB_sel
          );
          
 	process
@@ -68,7 +65,7 @@ port map( in1 => TB_in1, in2 => TB_in2, sel => TB_sel,
         TB_in2 <= '0';
         --realmente nao entendi se no exemplo foi um erro
         --ou aqui é mesmo pra ter um wait sem tempo
-        wait for 10 ns;
+        wait;
         
         
 	end process;
