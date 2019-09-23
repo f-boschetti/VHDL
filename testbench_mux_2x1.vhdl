@@ -1,6 +1,4 @@
 --Usamos o Scriptum (20.0) como editor
---e no eda online deu done
---porém não apareceu o grafico
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -11,13 +9,10 @@ end TB_mux_1;
 --Atribui um sinal a cada "variavel" pra poder
 --mudar elas
 architecture teste of TB_mux_1 is
-signal lin1, lin2 : std_logic;
 	
     signal TB_in1:  std_logic;
     signal TB_sel:  std_logic;
     signal TB_in2:  std_logic;
-	signal TB_lin1: std_logic;
-    signal TB_lin2: std_logic;
 begin
 
 --Port map dizendo oque recebe oque
@@ -66,8 +61,14 @@ port map( in1 => TB_in1, in2 => TB_in2, sel => TB_sel);
         
         TB_in1 <= '0';
         TB_in2 <= '0';
+        wait for 10 ns;
+        
+        TB_in1 <= '0';
+        TB_in2 <= '0';
         --realmente nao entendi se no exemplo foi um erro
         --ou aqui é mesmo pra ter um wait sem tempo
+        --porem sem ele a ultima waveform não aparece
+        --por isso o ultimo teste está duplicado
         wait;
         
         
